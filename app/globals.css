@@ -3,25 +3,58 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-white: #fff;
+  --color-black: #000;
+  --size-unit: 10;
+  --size-container-ideal: 1440;
+  --size-container-min: 769px;
+  --size-container-max: 1920px;
+  --size-container: clamp(var(--size-container-min),
+      100vw,
+      var(--size-container-max));
+  --size-font: calc(var(--size-container) / (var(--size-container-ideal) / var(--size-unit)));
+  --container-padding-x: 2.4rem;
+  --container-padding-y: 3.2rem;
 }
 
-@media (prefers-color-scheme: dark) {
+/* Tablet */
+@media screen and (max-width: 768px) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --size-container-ideal: 600;
+    --size-container-min: 481px;
+    --size-container-max: 768px;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Mobile Portrait */
+@media screen and (max-width: 480px) {
+  :root {
+    --size-container-ideal: 414;
+    --size-container-min: 0px;
+    --size-container-max: 480px;
+    --container-padding: 2.4rem;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
+  .text-shadow.text-shadow-sm {
+    text-shadow: 0.8px 0.8px 0.8px rgba(0, 0, 0, 0.2);
+  }
+
+  .text-shadow.text-shadow-lg {
+    text-shadow: 1.2px 1.2px 1.2px rgba(0, 0, 0, 0.2);
+  }
+}
+
+html {
+  font-size: var(--size-font);
+}
+
+body {
+  font-size: 1rem;
+  color: var(--color-white);
 }

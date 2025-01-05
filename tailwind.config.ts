@@ -9,8 +9,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        white: "var(--color-white)",
+        black: "var(--color-black)",
+      },
+      fontFamily: {
+        display: "var(--font-big-shoulders-display)",
+        sans: "var(--font-barlow)",
+      },
+      zIndex: {
+        hidden: "-1",
+        base: "10",
+      },
+      screens: {
+        sm: "480px",
+        md: "768px",
       },
     },
   },
