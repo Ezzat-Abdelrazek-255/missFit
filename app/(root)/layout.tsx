@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Big_Shoulders_Display, Barlow } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import MobileHeader from "@/components/shared/mobile-header";
+import Header from "@/components/shared/header";
 
 const bigShouldersDisplay = Big_Shoulders_Display({
   weight: ["700"],
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body
         className={`${bigShouldersDisplay.variable} ${barlow.variable} ${barlow.className} antialiased`}
       >
+        <Header />
         <MobileHeader />
         {children}
       </body>

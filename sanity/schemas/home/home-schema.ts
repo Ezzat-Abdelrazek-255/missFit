@@ -11,6 +11,11 @@ export const homeSchema = defineType({
       title: "Hero Section",
       type: "hero",
     }),
+    defineField({
+      name: "clients",
+      title: "Clients Section",
+      type: "clients",
+    }),
   ],
 
   preview: {

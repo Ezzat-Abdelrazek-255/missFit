@@ -6,10 +6,30 @@ export const HERO_QUERY = defineQuery(`
     title,
     description,
     cta,
-     "image": {
-        "url": image.asset->url,
-        "alt": image.alt
+     "desktopImage": {
+        "url": desktopImage.asset->url,
+        "alt": desktopImage.alt
+    },
+     "tabletImage": {
+        "url": tabletImage.asset->url,
+        "alt": tabletImage.alt
+    } ,
+     "mobileImage": {
+        "url": mobileImage.asset->url,
+        "alt": mobileImage.alt
     }  
   },
+}
+`);
+
+export const CLIENTS_QUERY = defineQuery(`
+*[_type == "home"][0] {
+  clients {
+    title,
+    logos[] {
+      "url": asset->url,
+      "alt": alt
+    }
+  }
 }
 `);

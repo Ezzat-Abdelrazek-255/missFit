@@ -81,6 +81,98 @@ export type Home = {
   _updatedAt: string;
   _rev: string;
   hero?: Hero;
+  clients?: Clients;
+};
+
+export type Clients = {
+  _type: "clients";
+  title?: string;
+  logos?: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "customImage";
+    _key: string;
+  }>;
+};
+
+export type Hero = {
+  _type: "hero";
+  title?: string;
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  cta?: Cta;
+  desktopImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "customImage";
+  };
+  tabletImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "customImage";
+  };
+  mobileImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "customImage";
+  };
+};
+
+export type CustomImage = {
+  _type: "customImage";
+  asset?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+  };
+  hotspot?: SanityImageHotspot;
+  crop?: SanityImageCrop;
+  alt?: string;
 };
 
 export type SanityImageCrop = {
@@ -140,53 +232,33 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type Hero = {
-  _type: "hero";
-  title?: string;
-  description?: Array<{
-    children?: Array<{
-      marks?: Array<string>;
-      text?: string;
-      _type: "span";
-      _key: string;
-    }>;
-    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-    listItem?: "bullet" | "number";
-    markDefs?: Array<{
-      href?: string;
-      _type: "link";
-      _key: string;
-    }>;
-    level?: number;
-    _type: "block";
-    _key: string;
-  }>;
-  cta?: Cta;
-  image?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt?: string;
-    _type: "image";
-  };
-};
-
 export type Cta = {
   _type: "cta";
   label?: string;
   url?: string;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Slug | Home | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Hero | Cta;
+export type AllSanitySchemaTypes =
+  | SanityImagePaletteSwatch
+  | SanityImagePalette
+  | SanityImageDimensions
+  | SanityFileAsset
+  | Geopoint
+  | Slug
+  | Home
+  | Clients
+  | Hero
+  | CustomImage
+  | SanityImageCrop
+  | SanityImageHotspot
+  | SanityImageAsset
+  | SanityAssetSourceData
+  | SanityImageMetadata
+  | Cta;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.ts
 // Variable: HERO_QUERY
-// Query: *[_type == "home"][0]{  hero {    title,    description,    cta,     "image": {        "url": image.asset->url,        "alt": image.alt    }    },}
+// Query: *[_type == "home"][0]{  hero {    title,    description,    cta,     "desktopImage": {        "url": desktopImage.asset->url,        "alt": desktopImage.alt    },     "tabletImage": {        "url": tabletImage.asset->url,        "alt": tabletImage.alt    } ,     "mobileImage": {        "url": mobileImage.asset->url,        "alt": mobileImage.alt    }    },}
 export type HERO_QUERYResult = {
   hero: {
     title: string | null;
@@ -209,10 +281,29 @@ export type HERO_QUERYResult = {
       _key: string;
     }> | null;
     cta: Cta | null;
-    image: {
+    desktopImage: {
       url: string | null;
       alt: string | null;
     };
+    tabletImage: {
+      url: string | null;
+      alt: string | null;
+    };
+    mobileImage: {
+      url: string | null;
+      alt: string | null;
+    };
+  } | null;
+} | null;
+// Variable: CLIENTS_QUERY
+// Query: *[_type == "home"][0] {  clients {    title,    logos[] {      "url": asset->url,      "alt": alt    }  }}
+export type CLIENTS_QUERYResult = {
+  clients: {
+    title: string | null;
+    logos: Array<{
+      url: string | null;
+      alt: string | null;
+    }> | null;
   } | null;
 } | null;
 
@@ -220,6 +311,7 @@ export type HERO_QUERYResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "\n*[_type == \"home\"][0]{\n  hero {\n    title,\n    description,\n    cta,\n     \"image\": {\n        \"url\": image.asset->url,\n        \"alt\": image.alt\n    }  \n  },\n}\n": HERO_QUERYResult;
+    '\n*[_type == "home"][0]{\n  hero {\n    title,\n    description,\n    cta,\n     "desktopImage": {\n        "url": desktopImage.asset->url,\n        "alt": desktopImage.alt\n    },\n     "tabletImage": {\n        "url": tabletImage.asset->url,\n        "alt": tabletImage.alt\n    } ,\n     "mobileImage": {\n        "url": mobileImage.asset->url,\n        "alt": mobileImage.alt\n    }  \n  },\n}\n': HERO_QUERYResult;
+    '\n*[_type == "home"][0] {\n  clients {\n    title,\n    logos[] {\n      "url": asset->url,\n      "alt": alt\n    }\n  }\n}\n': CLIENTS_QUERYResult;
   }
 }

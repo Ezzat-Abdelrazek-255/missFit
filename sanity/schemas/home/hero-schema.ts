@@ -4,6 +4,10 @@ export const heroSchema = defineType({
   name: "hero",
   title: "Hero Section",
   type: "object",
+  options: {
+    collapsible: true,
+    collapsed: true,
+  },
   fields: [
     defineField({
       name: "title",
@@ -22,19 +26,19 @@ export const heroSchema = defineType({
       type: "cta",
     }),
     defineField({
-      name: "image",
-      title: "Image",
-      type: "image",
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        {
-          name: "alt",
-          title: "Alt Text",
-          type: "string",
-        },
-      ],
+      name: "desktopImage",
+      title: "Desktop Image",
+      type: "customImage",
+    }),
+    defineField({
+      name: "tabletImage",
+      title: "Tablet Image",
+      type: "customImage",
+    }),
+    defineField({
+      name: "mobileImage",
+      title: "Mobile Image",
+      type: "customImage",
     }),
   ],
 });

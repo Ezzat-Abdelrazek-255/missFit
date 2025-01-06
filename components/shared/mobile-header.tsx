@@ -1,19 +1,23 @@
 import React from "react";
 import Logo from "./logo";
+import Button from "./button";
 
 // Modify label based on state
 
 const MobileHeader = () => {
   return (
-    <header className="md:hidden fixed top-0 py-[var(--container-padding-y)] px-[var(--container-padding-x)] flex items-center justify-between w-full">
+    <header className="fixed top-0 flex w-full items-center justify-between px-[var(--container-padding-x)] py-[var(--container-padding-y)] md:hidden">
       <Logo />
-      <button
-        aria-label="Open nav"
-        className="flex flex-col gap-[0.8rem] w-[2.6rem]"
-      >
-        <span className="border-white border-b-[2.5px] w-full"></span>
-        <span className="border-white border-b-[2.5px] bg-white w-full"></span>
-      </button>
+      <div className="flex items-center gap-[2rem]">
+        <button
+          aria-label="Open nav"
+          className="flex w-[2.6rem] flex-col gap-[0.8rem]"
+        >
+          <span className="w-full border-b-[2.5px] border-white"></span>
+          <span className="w-full border-b-[2.5px] border-white bg-white"></span>
+        </button>
+        <Button className="hidden sm:inline-block">Get Started</Button>
+      </div>
     </header>
   );
 };

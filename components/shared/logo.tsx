@@ -1,13 +1,17 @@
 import React from "react";
+import LogoIcon from "@/public/vectors/logo.svg";
 
 const Logo = () => {
   return (
     <div>
-      <p className="uppercase font-bold leading-[2rem] text-[2.2rem] md:hidden">
-        Missfit
-        <br />
-        Coaching
-      </p>
+      <div className="flex items-center gap-[1.2rem]">
+        <LogoIcon />
+        <p className="text-[2.2rem] font-bold uppercase leading-[2rem]">
+          Missfit
+          <br />
+          Coaching
+        </p>
+      </div>
     </div>
   );
 };
