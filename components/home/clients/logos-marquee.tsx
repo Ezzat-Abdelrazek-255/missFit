@@ -1,5 +1,4 @@
 "use client";
-import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import React, { useRef } from "react";
 import Image from "next/image";
@@ -15,7 +14,7 @@ type LogosMarqueeProps = {
 const LogosMarquee = ({ logos }: LogosMarqueeProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   useGSAP(
-    function() {
+    function () {
       horizontalLoop(".logo-wrapper", {
         repeat: -1,
         paddingRight: 70,
