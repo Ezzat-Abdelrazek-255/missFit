@@ -1,7 +1,7 @@
 import React from "react";
 import Star from "@/public/icons/star.svg";
 import Image from "next/image";
-import { PortableText, PortableTextBlock } from "@portabletext/react";
+import { PortableText } from "@portabletext/react";
 import { TestimonialType } from "@/types";
 
 const STARS_NUM = 5;
