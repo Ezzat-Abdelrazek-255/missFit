@@ -1,13 +1,9 @@
 import { defineField, defineType } from "sanity";
 
-export const heroSchema = defineType({
-  name: "hero",
-  title: "Hero Section",
+export const featureSchema = defineType({
+  name: "feature",
+  title: "Feature",
   type: "object",
-  options: {
-    collapsed: true,
-    collapsible: true,
-  },
   fields: [
     defineField({
       name: "title",
@@ -21,24 +17,28 @@ export const heroSchema = defineType({
       of: [{ type: "block" }],
     }),
     defineField({
+      name: "benefits",
+      title: "Benefits",
+      type: "array",
+      of: [{ type: "string" }],
+    }),
+    defineField({
+      name: "image",
+      title: "Image",
+      type: "customImage",
+    }),
+    defineField({
+      name: "direction",
+      title: "Direction",
+      type: "string",
+      options: {
+        list: ["left-to-right", "right-to-left"],
+      },
+    }),
+    defineField({
       name: "cta",
-      title: "Call To Action",
+      title: "CTA",
       type: "cta",
-    }),
-    defineField({
-      name: "desktopImage",
-      title: "Desktop Image",
-      type: "customImage",
-    }),
-    defineField({
-      name: "tabletImage",
-      title: "Tablet Image",
-      type: "customImage",
-    }),
-    defineField({
-      name: "mobileImage",
-      title: "Mobile Image",
-      type: "customImage",
     }),
   ],
 });

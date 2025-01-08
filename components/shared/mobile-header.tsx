@@ -6,7 +6,7 @@ import Button from "./button";
 
 const MobileHeader = () => {
   return (
-    <header className="fixed top-0 flex w-full items-center justify-between px-[var(--container-padding-x)] py-[var(--container-padding-y)] md:hidden">
+    <header className="fixed top-0 z-header flex w-full items-center justify-between px-[var(--container-padding-x)] py-[var(--container-padding-y)] md:hidden">
       <Logo />
       <div className="flex items-center gap-[2rem]">
         <button

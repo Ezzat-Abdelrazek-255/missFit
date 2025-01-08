@@ -5,6 +5,12 @@
 :root {
   --color-white: #fff;
   --color-black: #000;
+  --color-marine: #020d43;
+  --color-pink: #ed60d7;
+  --color-gray-200: #f8f8f8;
+  --color-gray-400: #d9d9d9;
+  --color-gray-600: #a3a3a3;
+  --color-gray-700: #383e47;
   --size-unit: 10;
   --size-container-ideal: 1440;
   --size-container-min: 769px;
@@ -13,8 +19,8 @@
       100vw,
       var(--size-container-max));
   --size-font: calc(var(--size-container) / (var(--size-container-ideal) / var(--size-unit)));
-  --container-padding-x: 4.8rem;
-  --container-padding-y: 2.4rem;
+  --container-padding-x: 10rem;
+  --container-padding-y: 8rem;
 }
 
 /* Tablet */

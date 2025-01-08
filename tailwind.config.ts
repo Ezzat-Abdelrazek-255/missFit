@@ -11,6 +11,14 @@ const config: Config = {
       colors: {
         white: "var(--color-white)",
         black: "var(--color-black)",
+        marine: "var(--color-marine)",
+        pink: "var(--color-pink)",
+        gray: {
+          200: "var(--color-gray-200)",
+          400: "var(--color-gray-400)",
+          600: "var(--color-gray-600)",
+          700: "var(--color-gray-700)",
+        },
       },
       fontFamily: {
         display: "var(--font-big-shoulders-display)",
@@ -19,6 +27,7 @@ const config: Config = {
       zIndex: {
         hidden: "-1",
         base: "10",
+        header: "999",
       },
       screens: {
         sm: "480px",

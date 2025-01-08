@@ -16,7 +16,6 @@ const HeroImage = async () => {
           alt={content.desktopImage.alt!}
           className="hidden h-full w-full object-cover object-right md:inline-block"
           fill
-          unoptimized
         />
       )}
       {content.tabletImage && (
@@ -25,7 +24,6 @@ const HeroImage = async () => {
           alt={content.tabletImage.alt!}
           className="hidden h-full w-full object-cover object-right sm:inline-block md:hidden"
           fill
-          unoptimized
         />
       )}
       {content.mobileImage && (
@@ -34,7 +32,6 @@ const HeroImage = async () => {
           alt={content.mobileImage.alt!}
           className="h-full w-full object-cover object-right sm:hidden"
           fill
-          unoptimized
         />
       )}
       <div className="absolute inset-0 z-base bg-black opacity-20"></div>

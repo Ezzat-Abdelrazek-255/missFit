@@ -6,7 +6,7 @@ import Logo from "./logo";
 
 const Header = () => {
   return (
-    <header className="fixed top-0 hidden w-full justify-between px-[var(--container-padding-x)] py-[var(--container-padding-y)] md:flex">
+    <header className="fixed top-0 z-header hidden w-full justify-between px-[calc(var(--container-padding-x)-6.2rem)] py-[2.4rem] md:flex">
       <div className="flex items-center gap-[15rem]">
         <Logo />
         <ul className="flex items-center gap-[3.2rem] text-[1.6rem] font-semibold">

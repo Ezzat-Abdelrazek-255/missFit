@@ -82,6 +82,48 @@ export type Home = {
   _rev: string;
   hero?: Hero;
   clients?: Clients;
+  testimonials?: Testimonials;
+  programs?: Programs;
+  features?: Features;
+  faqs?: Faqs;
+};
+
+export type Faqs = {
+  _type: "faqs";
+  faqs?: Array<
+    {
+      _key: string;
+    } & Faq
+  >;
+};
+
+export type Features = {
+  _type: "features";
+  features?: Array<
+    {
+      _key: string;
+    } & Feature
+  >;
+};
+
+export type Programs = {
+  _type: "programs";
+  title?: string;
+  programs?: Array<
+    {
+      _key: string;
+    } & Program
+  >;
+};
+
+export type Testimonials = {
+  _type: "testimonials";
+  title?: string;
+  testimonials?: Array<
+    {
+      _key: string;
+    } & Testimonial
+  >;
 };
 
 export type Clients = {
@@ -149,6 +191,140 @@ export type Hero = {
     _type: "customImage";
   };
   mobileImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "customImage";
+  };
+};
+
+export type Faq = {
+  _type: "faq";
+  question?: string;
+  answer?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
+export type Feature = {
+  _type: "feature";
+  title?: string;
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  benefits?: Array<string>;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "customImage";
+  };
+  direction?: "left-to-right" | "right-to-left";
+  cta?: Cta;
+};
+
+export type Program = {
+  _type: "program";
+  title?: string;
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "customImage";
+  };
+  cta?: Cta;
+};
+
+export type Testimonial = {
+  _type: "testimonial";
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  name?: string;
+  position?: string;
+  organization?: string;
+  image?: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -246,8 +422,16 @@ export type AllSanitySchemaTypes =
   | Geopoint
   | Slug
   | Home
+  | Faqs
+  | Features
+  | Programs
+  | Testimonials
   | Clients
   | Hero
+  | Faq
+  | Feature
+  | Program
+  | Testimonial
   | CustomImage
   | SanityImageCrop
   | SanityImageHotspot
@@ -306,6 +490,131 @@ export type CLIENTS_QUERYResult = {
     }> | null;
   } | null;
 } | null;
+// Variable: TESTIMONIALS_QUERY
+// Query: *[_type == "home"][0] {    testimonials {      title,      testimonials[] {        description,        name,        position,        organization,        "image": {          "url": image.asset->url,          "alt": image.alt        }      }    }  }
+export type TESTIMONIALS_QUERYResult = {
+  testimonials: {
+    title: string | null;
+    testimonials: Array<{
+      description: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?:
+          | "blockquote"
+          | "h1"
+          | "h2"
+          | "h3"
+          | "h4"
+          | "h5"
+          | "h6"
+          | "normal";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }> | null;
+      name: string | null;
+      position: string | null;
+      organization: string | null;
+      image: {
+        url: string | null;
+        alt: string | null;
+      };
+    }> | null;
+  } | null;
+} | null;
+// Variable: PROGRAMS_QUERY
+// Query: *[_type == "home"][0] {programs {title,programs[] {title,description,cta,"image": {"url": image.asset->url,"alt":image.alt}}}}
+export type PROGRAMS_QUERYResult = {
+  programs: {
+    title: string | null;
+    programs: Array<{
+      title: string | null;
+      description: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?:
+          | "blockquote"
+          | "h1"
+          | "h2"
+          | "h3"
+          | "h4"
+          | "h5"
+          | "h6"
+          | "normal";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }> | null;
+      cta: Cta | null;
+      image: {
+        url: string | null;
+        alt: string | null;
+      };
+    }> | null;
+  } | null;
+} | null;
+// Variable: FEATURES_QUERY
+// Query: *[_type == "home"][0] {features {features[] {title,description,benefits[],cta,direction,"image": {"url": image.asset->url,"alt":image.alt}}}}
+export type FEATURES_QUERYResult = {
+  features: {
+    features: Array<{
+      title: string | null;
+      description: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?:
+          | "blockquote"
+          | "h1"
+          | "h2"
+          | "h3"
+          | "h4"
+          | "h5"
+          | "h6"
+          | "normal";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }> | null;
+      benefits: Array<string> | null;
+      cta: Cta | null;
+      direction: "left-to-right" | "right-to-left" | null;
+      image: {
+        url: string | null;
+        alt: string | null;
+      };
+    }> | null;
+  } | null;
+} | null;
 
 // Query TypeMap
 import "@sanity/client";
@@ -313,5 +622,8 @@ declare module "@sanity/client" {
   interface SanityQueries {
     '\n*[_type == "home"][0]{\n  hero {\n    title,\n    description,\n    cta,\n     "desktopImage": {\n        "url": desktopImage.asset->url,\n        "alt": desktopImage.alt\n    },\n     "tabletImage": {\n        "url": tabletImage.asset->url,\n        "alt": tabletImage.alt\n    } ,\n     "mobileImage": {\n        "url": mobileImage.asset->url,\n        "alt": mobileImage.alt\n    }  \n  },\n}\n': HERO_QUERYResult;
     '\n*[_type == "home"][0] {\n  clients {\n    title,\n    logos[] {\n      "url": asset->url,\n      "alt": alt\n    }\n  }\n}\n': CLIENTS_QUERYResult;
+    '\n  *[_type == "home"][0] {\n    testimonials {\n      title,\n      testimonials[] {\n        description,\n        name,\n        position,\n        organization,\n        "image": {\n          "url": image.asset->url,\n          "alt": image.alt\n        }\n      }\n    }\n  }\n': TESTIMONIALS_QUERYResult;
+    '\n*[_type == "home"][0] {\nprograms {\ntitle,\nprograms[] {\ntitle,\ndescription,\ncta,\n"image": {\n"url": image.asset->url,\n"alt":image.alt\n}\n}\n}\n}\n': PROGRAMS_QUERYResult;
+    '\n*[_type == "home"][0] {\nfeatures {\nfeatures[] {\ntitle,\ndescription,\nbenefits[],\ncta,\ndirection,\n"image": {\n"url": image.asset->url,\n"alt":image.alt\n}\n}\n}\n}\n': FEATURES_QUERYResult;
   }
 }
