@@ -27,7 +27,7 @@ const Feature = ({ feature }: FeatureProps) => {
       </div>
       <ul className="mb-[4.8rem] flex flex-col gap-[0.9rem] text-[1.6rem] leading-[2.4rem]">
         {feature.benefits?.map((benefit) => (
-          <li className="flex items-center gap-[1rem]">
+          <li key={benefit} className="flex items-center gap-[1rem]">
             <Correct />
             <span>{benefit}</span>
           </li>
