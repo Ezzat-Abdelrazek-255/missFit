@@ -1,4 +1,5 @@
 import ClientsSection from "@/components/home/clients/clients-section";
+import FaqsSection from "@/components/home/faqs/faqs-section";
 import FeaturesSection from "@/components/home/features/features-section";
 import HeroSection from "@/components/home/hero/hero-section";
 import ProgramsSection from "@/components/home/programs/programs-section";
@@ -12,6 +13,7 @@ export default function Home() {
       <TestimonialsSection />
       <ProgramsSection />
       <FeaturesSection />
+      <FaqsSection />
     </div>
   );
 }

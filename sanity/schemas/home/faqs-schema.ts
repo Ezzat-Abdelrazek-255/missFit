@@ -10,6 +10,11 @@ export const faqsSchema = defineType({
   },
   fields: [
     defineField({
+      name: "title",
+      title: "Title",
+      type: "string",
+    }),
+    defineField({
       name: "faqs",
       title: "FAQS",
       type: "array",

@@ -86,3 +86,15 @@ direction,
 }
 }
 `);
+
+export const FAQS_QUERY = defineQuery(`
+*[_type == "home"][0] {
+faqs {
+title,
+faqs[] {
+question,
+answer
+}
+}
+}
+`);

@@ -90,6 +90,7 @@ export type Home = {
 
 export type Faqs = {
   _type: "faqs";
+  title?: string;
   faqs?: Array<
     {
       _key: string;
@@ -615,6 +616,42 @@ export type FEATURES_QUERYResult = {
     }> | null;
   } | null;
 } | null;
+// Variable: FAQS_QUERY
+// Query: *[_type == "home"][0] {faqs {title,faqs[] {question,answer}}}
+export type FAQS_QUERYResult = {
+  faqs: {
+    title: string | null;
+    faqs: Array<{
+      question: string | null;
+      answer: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?:
+          | "blockquote"
+          | "h1"
+          | "h2"
+          | "h3"
+          | "h4"
+          | "h5"
+          | "h6"
+          | "normal";
+        listItem?: "bullet" | "number";
+        markDefs?: Array<{
+          href?: string;
+          _type: "link";
+          _key: string;
+        }>;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }> | null;
+    }> | null;
+  } | null;
+} | null;
 
 // Query TypeMap
 import "@sanity/client";
@@ -625,5 +662,6 @@ declare module "@sanity/client" {
     '\n  *[_type == "home"][0] {\n    testimonials {\n      title,\n      testimonials[] {\n        description,\n        name,\n        position,\n        organization,\n        "image": {\n          "url": image.asset->url,\n          "alt": image.alt\n        }\n      }\n    }\n  }\n': TESTIMONIALS_QUERYResult;
     '\n*[_type == "home"][0] {\nprograms {\ntitle,\nprograms[] {\ntitle,\ndescription,\ncta,\n"image": {\n"url": image.asset->url,\n"alt":image.alt\n}\n}\n}\n}\n': PROGRAMS_QUERYResult;
     '\n*[_type == "home"][0] {\nfeatures {\nfeatures[] {\ntitle,\ndescription,\nbenefits[],\ncta,\ndirection,\n"image": {\n"url": image.asset->url,\n"alt":image.alt\n}\n}\n}\n}\n': FEATURES_QUERYResult;
+    '\n*[_type == "home"][0] {\nfaqs {\ntitle,\nfaqs[] {\nquestion,\nanswer\n}\n}\n}\n': FAQS_QUERYResult;
   }
 }

@@ -453,6 +453,13 @@
             "value": "faqs"
           }
         },
+        "title": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
         "faqs": {
           "type": "objectAttribute",
           "value": {
