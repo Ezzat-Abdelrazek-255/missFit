@@ -1,4 +1,5 @@
 import {
+  FAQS_QUERYResult,
   FEATURES_QUERYResult,
   PROGRAMS_QUERYResult,
   TESTIMONIALS_QUERYResult,
@@ -23,6 +24,12 @@ export type ProgramType = PROGRAMS_QUERYResult extends {
 
 export type FeatureType = FEATURES_QUERYResult extends {
   features: { features: Array<infer U> | null } | null;
+} | null
+  ? U
+  : never;
+
+export type FaqType = FAQS_QUERYResult extends {
+  faqs: { faqs: Array<infer U> | null } | null;
 } | null
   ? U
   : never;

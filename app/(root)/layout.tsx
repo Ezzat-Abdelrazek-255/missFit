@@ -3,6 +3,7 @@ import { Big_Shoulders_Display, Barlow } from "next/font/google";
 import "../globals.css";
 import MobileHeader from "@/components/shared/mobile-header";
 import Header from "@/components/shared/header";
+import Footer from "@/components/shared/footer";
 
 const bigShouldersDisplay = Big_Shoulders_Display({
   weight: ["700"],
@@ -37,6 +38,7 @@ export default function RootLayout({
         <Header />
         <MobileHeader />
         {children}
+        <Footer />
       </body>
     </html>
   );

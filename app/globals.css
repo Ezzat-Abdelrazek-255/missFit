@@ -8,6 +8,7 @@
   --color-marine: #020d43;
   --color-pink: #ed60d7;
   --color-gray-200: #f8f8f8;
+  --color-gray-300: #e8e8e8;
   --color-gray-400: #d9d9d9;
   --color-gray-600: #a3a3a3;
   --color-gray-700: #383e47;
@@ -96,6 +97,7 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
@@ -128,6 +130,7 @@ body {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }

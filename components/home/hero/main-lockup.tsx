@@ -1,4 +1,4 @@
-import Button from "@/components/shared/button";
+import { Button } from "@/components/shared/button";
 import { PortableText } from "@portabletext/react";
 import { sanityClient } from "@/sanity/lib/client";
 import { HERO_QUERY } from "@/sanity/lib/queries";
@@ -16,7 +16,9 @@ const MainLockup = async () => {
       <div className="text-shadow text-shadow-sm mb-[3.2rem] max-w-[25rem] text-[2rem] leading-[2.4rem] sm:mb-[2.4rem] sm:text-[1.3rem] sm:leading-[1.6rem] md:mb-[4.2rem] md:max-w-[60rem] md:text-[2rem] md:leading-[2.4rem]">
         <PortableText value={content.description!} />
       </div>
-      <Button>Get Started</Button>
+      <Button className="h-[6.4rem] w-[21rem] rounded-full bg-white text-[2rem] font-semibold uppercase leading-[2.3rem] text-black">
+        Get Started
+      </Button>
     </div>
   );
 };

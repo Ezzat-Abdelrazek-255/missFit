@@ -10,7 +10,7 @@ const FeaturesSection = async () => {
   if (!content) return null;
 
   return (
-    <section className="px-[var(--container-padding-x)] py-[var(--container-padding-y)] text-black">
+    <section className="py-[var(--container-padding-y)] text-black">
       <Features />
     </section>
   );

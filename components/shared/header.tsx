@@ -1,7 +1,7 @@
 import { NAV_ITEMS } from "@/constants";
 import Link from "next/link";
 import React from "react";
-import Button from "./button";
+import { Button } from "./button";
 import Logo from "./logo";
 
 const Header = () => {
@@ -17,7 +17,9 @@ const Header = () => {
           ))}
         </ul>
       </div>
-      <Button className="h-[4.9rem] w-[14.8rem]">Get Started</Button>
+      <Button className="h-[4.9rem] w-[14.8rem] rounded-full bg-white text-[2rem] font-semibold uppercase text-black sm:h-[4.2rem] sm:w-[13.5rem] sm:text-[1.2rem] md:h-[6.4rem] md:w-[20rem] md:text-[2rem]">
+        Get Started
+      </Button>
     </header>
   );
 };
