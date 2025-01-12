@@ -13,7 +13,9 @@ const TestimonialsSection = async () => {
   return (
     <section className="px-[var(--container-padding-x)] py-[var(--container-padding-y)] text-black md:px-0 md:pl-[var(--container-padding-x)]">
       <SectionTitle>{content.title}</SectionTitle>
-      <Testimonials />
+      {content.testimonials && (
+        <Testimonials testimonials={content.testimonials} />
+      )}
     </section>
   );
 };

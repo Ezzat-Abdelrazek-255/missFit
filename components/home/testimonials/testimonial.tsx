@@ -12,7 +12,7 @@ type TestimonialProps = {
 
 const Testimonial = ({ testimonial }: TestimonialProps) => {
   return (
-    <article className="grid aspect-auto h-full w-full grid-cols-1 border-2 border-gray-400 md:aspect-[1.6] md:w-[73.4rem] md:grid-cols-2">
+    <article className="grid aspect-auto h-full w-full grid-cols-1 border-2 border-gray-400 md:aspect-[1.6] md:w-full md:grid-cols-2">
       <div className="relative hidden w-full bg-gray-400 md:block">
         {testimonial.image && (
           <Image
@@ -27,7 +27,10 @@ const Testimonial = ({ testimonial }: TestimonialProps) => {
         <div>
           <div className="mb-[2.4rem] flex items-center gap-[0.8rem]">
             {[...new Array(STARS_NUM)].map((_, i) => (
-              <Star key={i} />
+              <Star
+                key={i}
+                className="text-[1.9rem] sm:text-[1.4rem] md:text-[1.9rem]"
+              />
             ))}
           </div>
 

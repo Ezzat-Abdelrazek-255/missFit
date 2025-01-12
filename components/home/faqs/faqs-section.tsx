@@ -13,7 +13,7 @@ const FaqsSection = async () => {
   return (
     <section className="px-[var(--container-padding-x)] py-[var(--container-padding-y)]">
       <SectionTitle>{content.title}</SectionTitle>
-      <Faqs />
+      {content.faqs && <Faqs faqs={content.faqs} />}
     </section>
   );
 };

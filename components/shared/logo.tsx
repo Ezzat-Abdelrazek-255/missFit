@@ -9,7 +9,7 @@ type LogoProps = {
 const Logo = ({ color = "white" }: LogoProps) => {
   return (
     <div>
-      <div className="flex items-center gap-[1.2rem]">
+      <div className="flex items-center gap-[1.2rem] text-[3.5rem]">
         {color === "white" ? <LogoIcon /> : <LogoIconPink />}
         <p className="text-[2.2rem] font-bold uppercase leading-[2rem]">
           Missfit

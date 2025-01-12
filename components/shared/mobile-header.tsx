@@ -14,7 +14,7 @@ const MobileHeader = () => {
           <span className="w-full border-b-[2.5px] border-white"></span>
           <span className="w-full border-b-[2.5px] border-white bg-white"></span>
         </button>
-        <Button className="hidden h-[2.9rem] w-[8.8rem] rounded-full bg-white text-[1rem] font-semibold uppercase leading-[1.1rem] text-black sm:inline-block md:h-[6.4rem] md:w-[20rem] md:text-[2rem]">
+        <Button className="hidden h-[2.9rem] w-[8.8rem] rounded-full bg-white text-[1rem] font-semibold uppercase leading-[1.1rem] text-black hover:bg-gray-100 sm:inline-block md:h-[6.4rem] md:w-[20rem] md:text-[2rem]">
           Get Started
         </Button>
       </div>

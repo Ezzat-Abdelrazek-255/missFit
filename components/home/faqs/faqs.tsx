@@ -3,21 +3,21 @@ import { FAQS_QUERY } from "@/sanity/lib/queries";
 import React from "react";
 import Faq from "./faq";
 import SectionButton from "@/components/shared/section-button";
+import { FaqType } from "@/types";
 
-const Faqs = async () => {
-  const sanityResponse = await sanityClient.fetch(FAQS_QUERY);
-  const content = sanityResponse?.faqs;
+type FaqsProps = {
+  faqs: FaqType[];
+};
 
-  if (!content) return;
+const Faqs = async ({ faqs }: FaqsProps) => {
   return (
     <div className="flex flex-col items-center">
       <ul className="mb-[6.5rem] flex w-full max-w-[1220px] flex-col">
-        {content.faqs &&
-          content.faqs.map((faq) => (
-            <li key={faq.question}>
-              <Faq faq={faq} />
-            </li>
-          ))}
+        {faqs.map((faq) => (
+          <li key={faq.question}>
+            <Faq faq={faq} />
+          </li>
+        ))}
       </ul>
 
       <SectionButton>View More</SectionButton>

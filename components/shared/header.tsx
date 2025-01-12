@@ -17,7 +17,7 @@ const Header = () => {
           ))}
         </ul>
       </div>
-      <Button className="h-[4.9rem] w-[14.8rem] rounded-full bg-white text-[2rem] font-semibold uppercase text-black sm:h-[4.2rem] sm:w-[13.5rem] sm:text-[1.2rem] md:h-[6.4rem] md:w-[20rem] md:text-[2rem]">
+      <Button className="h-[4.9rem] w-[14.8rem] rounded-full bg-white text-[2rem] font-semibold uppercase text-black hover:bg-gray-100 sm:h-[4.2rem] sm:w-[13.5rem] sm:text-[1.2rem] md:h-[6.4rem] md:w-[20rem] md:text-[2rem]">
         Get Started
       </Button>
     </header>

@@ -11,7 +11,7 @@ const FeaturesSection = async () => {
 
   return (
     <section className="py-[var(--container-padding-y)] text-black">
-      <Features />
+      {content.features && <Features features={content.features} />}
     </section>
   );
 };

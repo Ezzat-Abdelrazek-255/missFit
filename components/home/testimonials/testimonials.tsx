@@ -1,23 +1,44 @@
-import { sanityClient } from "@/sanity/lib/client";
-import { TESTIMONIALS_QUERY } from "@/sanity/lib/queries";
+"use client";
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import Testimonial from "./testimonial";
+import { TestimonialType } from "@/types";
 
-const Testimonials = async () => {
-  const sanityResponse = await sanityClient.fetch(TESTIMONIALS_QUERY);
-  const content = sanityResponse?.testimonials;
+import "swiper/css";
+import SwiperControls from "@/components/shared/swiper-controls";
 
-  if (!content) return null;
+type TestimonialsProps = {
+  testimonials: TestimonialType[];
+};
 
+const Testimonials = ({ testimonials }: TestimonialsProps) => {
   return (
-    <ul className="flex flex-col items-stretch gap-[2rem] overflow-hidden sm:grid sm:grid-flow-col">
-      {content.testimonials &&
-        content.testimonials.map((testimonial) => (
-          <li key={testimonial.name}>
-            <Testimonial testimonial={testimonial} />
-          </li>
-        ))}
-    </ul>
+    <div className="relative">
+      <Swiper
+        slidesPerView="auto"
+        spaceBetween={20}
+        direction="vertical"
+        breakpoints={{
+          480: {
+            direction: "horizontal",
+          },
+        }}
+        style={{
+          position: "static",
+        }}
+      >
+        <SwiperControls />
+        <ul className="flex flex-col items-stretch sm:grid sm:grid-flow-col">
+          {testimonials.map((testimonial) => (
+            <SwiperSlide className="md:!w-[73.4rem]" key={testimonial.name}>
+              <li className="sm:cursor-grab">
+                <Testimonial testimonial={testimonial} />
+              </li>
+            </SwiperSlide>
+          ))}
+        </ul>
+      </Swiper>
+    </div>
   );
 };
 

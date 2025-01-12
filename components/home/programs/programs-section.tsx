@@ -13,7 +13,7 @@ const ProgramsSection = async () => {
   return (
     <section className="overflow-hidden bg-gray-200 px-[var(--container-padding-x)] py-[var(--container-padding-y)] text-black">
       <SectionTitle>{content.title}</SectionTitle>
-      <Programs />
+      {content.programs && <Programs programs={content.programs} />}
     </section>
   );
 };
