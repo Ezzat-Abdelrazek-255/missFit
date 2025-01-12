@@ -23,7 +23,8 @@ const Feature = ({ feature }: FeatureProps) => {
       <article
         className={cn(
           "items-start px-[var(--container-padding-x)] py-[4rem] sm:flex sm:flex-row sm:gap-x-[2.4rem] sm:py-[3rem] md:items-center md:gap-x-[8rem] md:py-[6rem]",
-          feature.direction === "left-to-right" && "sm:flex-row-reverse",
+          feature.direction === "left-to-right" &&
+          "sm:flex-row-reverse sm:justify-end",
         )}
       >
         <div className="sm:hidden">
