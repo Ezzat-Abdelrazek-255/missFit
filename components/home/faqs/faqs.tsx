@@ -1,5 +1,3 @@
-import { sanityClient } from "@/sanity/lib/client";
-import { FAQS_QUERY } from "@/sanity/lib/queries";
 import React from "react";
 import Faq from "./faq";
 import SectionButton from "@/components/shared/section-button";
