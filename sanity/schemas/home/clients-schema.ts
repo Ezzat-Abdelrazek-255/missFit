@@ -2,7 +2,7 @@ import { defineType, defineField } from "sanity";
 
 export const clientsSchema = defineType({
   name: "clients",
-  title: "Clients Section",
+  title: "Clients",
   type: "object",
   options: {
     collapsed: true,

@@ -57,7 +57,11 @@ const Footer = () => {
           <div>
             <FooterHeading>Coaching Programs</FooterHeading>
             <FooterList>
-              <li>Job Searching Coaching</li>
+              <li>
+                <Link href="/coaching-programs/job-search">
+                  Job Searching Coaching
+                </Link>
+              </li>
               <li>Career Coaching</li>
               <li>Executive Coaching</li>
             </FooterList>

@@ -87,6 +87,21 @@ direction,
 }
 `);
 
+export const CTA_SECTION_QUERY = defineQuery(`
+*[_type == "home"][0]{
+ctaSection {
+
+title,
+description,
+cta,
+"image": {
+"url":image.asset->url,
+"alt":image.alt
+}
+}
+}
+`);
+
 export const FAQS_QUERY = defineQuery(`
 *[_type == "home"][0] {
 faqs {
@@ -96,5 +111,28 @@ question,
 answer
 }
 }
+}
+`);
+
+export const JOB_SEARCH_QUERY = defineQuery(`
+*[_type == "coachingProgram" && category == "job-search-coaching"][0] {
+  title,
+  description,
+  cta,
+  firstParagraph,
+  phases,
+  "careerCoach": {
+    "title": careerCoach.title,
+    "coachTitle": careerCoach.coachTitle,
+    "coachImage": {
+      "url": careerCoach.coachImage.asset->url,
+      "alt": careerCoach.coachImage.alt
+    },
+    "coachStory": careerCoach.coachStory
+  },
+  guarantees,
+  pricingPlans,
+  faqs,
+  secondParagraph
 }
 `);

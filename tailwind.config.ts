@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { BREAKPOINTS } from "./constants";
 
 const config: Config = {
   darkMode: ["class"],
@@ -72,8 +73,8 @@ const config: Config = {
         header: "999",
       },
       screens: {
-        sm: "480px",
-        md: "768px",
+        sm: `${BREAKPOINTS["sm"]}px`,
+        md: `${BREAKPOINTS["md"]}px`,
       },
       borderRadius: {
         lg: "var(--radius)",

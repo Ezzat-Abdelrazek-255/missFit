@@ -74,6 +74,233 @@ export type Slug = {
   source?: string;
 };
 
+export type Blogs = {
+  _id: string;
+  _type: "blogs";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  featuredBlog?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "blog";
+  };
+  blogs?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "blog";
+  }>;
+};
+
+export type Blog = {
+  _id: string;
+  _type: "blog";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  category?: "job-search-coaching" | "career-coaching" | "executive-coaching";
+  title?: string;
+  content?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  author?: string;
+  publishDate?: string;
+  readDuration?: number;
+  relatedBlogs?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "blog";
+  }>;
+};
+
+export type Resources = {
+  _id: string;
+  _type: "resources";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  blogs?: {
+    featuredBlog?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "blog";
+    };
+    blogs?: Array<{
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      _key: string;
+      [internalGroqTypeReferenceTo]?: "blog";
+    }>;
+    _type: "blogs";
+  };
+};
+
+export type Workshops = {
+  _id: string;
+  _type: "workshops";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  linkedinEngine?: Workshop;
+};
+
+export type Workshop = {
+  _type: "workshop";
+  title?: string;
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  cta?: Cta;
+  testimonials?: Testimonials;
+  features?: Features;
+  phases?: Phases;
+  faqs?: Faqs;
+  pricingPlans?: PricingPlans;
+};
+
+export type Services = {
+  _id: string;
+  _type: "services";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  resumeWriting?: Service;
+};
+
+export type Service = {
+  _type: "service";
+  title?: string;
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  cta?: Cta;
+};
+
+export type CoachingProgram = {
+  _id: string;
+  _type: "coachingProgram";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  category?:
+    | "job-search-coaching"
+    | "career-search-coaching"
+    | "executive-coaching";
+  title?: string;
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: never;
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  cta?: Cta;
+  firstParagraph?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: never;
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  phases?: Phases;
+  careerCoach?: CareerCoach;
+  guarantees?: Guarantees;
+  pricingPlans?: PricingPlans;
+  faqs?: Faqs;
+  secondParagraph?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: never;
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
 export type Home = {
   _id: string;
   _type: "home";
@@ -85,26 +312,44 @@ export type Home = {
   testimonials?: Testimonials;
   programs?: Programs;
   features?: Features;
+  ctaSection?: CtaSection;
   faqs?: Faqs;
 };
 
-export type Faqs = {
-  _type: "faqs";
+export type CtaSection = {
+  _type: "ctaSection";
   title?: string;
-  faqs?: Array<
-    {
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
       _key: string;
-    } & Faq
-  >;
-};
-
-export type Features = {
-  _type: "features";
-  features?: Array<
-    {
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
       _key: string;
-    } & Feature
-  >;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  cta?: Cta;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "customImage";
+  };
 };
 
 export type Programs = {
@@ -114,16 +359,6 @@ export type Programs = {
     {
       _key: string;
     } & Program
-  >;
-};
-
-export type Testimonials = {
-  _type: "testimonials";
-  title?: string;
-  testimonials?: Array<
-    {
-      _key: string;
-    } & Testimonial
   >;
 };
 
@@ -203,6 +438,231 @@ export type Hero = {
     alt?: string;
     _type: "customImage";
   };
+};
+
+export type CustomPortableText = Array<{
+  children?: Array<{
+    marks?: Array<string>;
+    text?: string;
+    _type: "span";
+    _key: string;
+  }>;
+  style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+  listItem?: never;
+  markDefs?: Array<{
+    href?: string;
+    _type: "link";
+    _key: string;
+  }>;
+  level?: number;
+  _type: "block";
+  _key: string;
+}>;
+
+export type Features = {
+  _type: "features";
+  features?: Array<
+    {
+      _key: string;
+    } & Feature
+  >;
+};
+
+export type Testimonials = {
+  _type: "testimonials";
+  title?: string;
+  testimonials?: Array<
+    {
+      _key: string;
+    } & Testimonial
+  >;
+};
+
+export type CareerCoach = {
+  _type: "careerCoach";
+  title?: string;
+  coachTitle?: string;
+  coachImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "customImage";
+  };
+  coachStory?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
+export type PricingPlans = {
+  _type: "pricingPlans";
+  title?: string;
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  pricingPlans?: Array<
+    {
+      _key: string;
+    } & PricingPlan
+  >;
+  footnote?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
+export type Guarantees = {
+  _type: "guarantees";
+  title?: string;
+  guarantees?: Array<
+    {
+      _key: string;
+    } & Guarantee
+  >;
+  footnote?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
+export type Phases = {
+  _type: "phases";
+  title?: string;
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  phases?: Array<
+    {
+      _key: string;
+    } & Phase
+  >;
+  footnote?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
+export type Faqs = {
+  _type: "faqs";
+  title?: string;
+  faqs?: Array<
+    {
+      _key: string;
+    } & Faq
+  >;
+};
+
+export type PricingPlan = {
+  _type: "pricingPlan";
+  tag?: "best-value" | "most-popular" | "most-flexible";
+  title?: string;
+  price?: number;
+  benefits?: Array<string>;
+};
+
+export type Guarantee = {
+  _type: "guarantee";
+  title?: string;
+  description?: CustomPortableText;
+};
+
+export type Phase = {
+  _type: "phase";
+  title?: string;
+  description?: CustomPortableText;
+  outcomes?: Array<string>;
 };
 
 export type Faq = {
@@ -422,13 +882,30 @@ export type AllSanitySchemaTypes =
   | SanityFileAsset
   | Geopoint
   | Slug
+  | Blogs
+  | Blog
+  | Resources
+  | Workshops
+  | Workshop
+  | Services
+  | Service
+  | CoachingProgram
   | Home
-  | Faqs
-  | Features
+  | CtaSection
   | Programs
-  | Testimonials
   | Clients
   | Hero
+  | CustomPortableText
+  | Features
+  | Testimonials
+  | CareerCoach
+  | PricingPlans
+  | Guarantees
+  | Phases
+  | Faqs
+  | PricingPlan
+  | Guarantee
+  | Phase
   | Faq
   | Feature
   | Program
@@ -616,6 +1093,36 @@ export type FEATURES_QUERYResult = {
     }> | null;
   } | null;
 } | null;
+// Variable: CTA_SECTION_QUERY
+// Query: *[_type == "home"][0]{ctaSection {title,description,cta,"image": {"url":image.asset->url,"alt":image.alt}}}
+export type CTA_SECTION_QUERYResult = {
+  ctaSection: {
+    title: string | null;
+    description: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+    cta: Cta | null;
+    image: {
+      url: string | null;
+      alt: string | null;
+    };
+  } | null;
+} | null;
 // Variable: FAQS_QUERY
 // Query: *[_type == "home"][0] {faqs {title,faqs[] {question,answer}}}
 export type FAQS_QUERYResult = {
@@ -652,6 +1159,96 @@ export type FAQS_QUERYResult = {
     }> | null;
   } | null;
 } | null;
+// Variable: JOB_SEARCH_QUERY
+// Query: *[_type == "coachingProgram" && category == "job-search-coaching"][0] {  title,  description,  cta,  firstParagraph,  phases,  "careerCoach": {    "title": careerCoach.title,    "coachTitle": careerCoach.coachTitle,    "coachImage": {      "url": careerCoach.coachImage.asset->url,      "alt": careerCoach.coachImage.alt    },    "coachStory": careerCoach.coachStory  },  guarantees,  pricingPlans,  faqs,  secondParagraph}
+export type JOB_SEARCH_QUERYResult = {
+  title: string | null;
+  description: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: never;
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  cta: Cta | null;
+  firstParagraph: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: never;
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+  phases: Phases | null;
+  careerCoach: {
+    title: string | null;
+    coachTitle: string | null;
+    coachImage: {
+      url: string | null;
+      alt: string | null;
+    };
+    coachStory: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
+  };
+  guarantees: Guarantees | null;
+  pricingPlans: PricingPlans | null;
+  faqs: Faqs | null;
+  secondParagraph: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: never;
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }> | null;
+} | null;
 
 // Query TypeMap
 import "@sanity/client";
@@ -662,6 +1259,8 @@ declare module "@sanity/client" {
     '\n  *[_type == "home"][0] {\n    testimonials {\n      title,\n      testimonials[] {\n        description,\n        name,\n        position,\n        organization,\n        "image": {\n          "url": image.asset->url,\n          "alt": image.alt\n        }\n      }\n    }\n  }\n': TESTIMONIALS_QUERYResult;
     '\n*[_type == "home"][0] {\nprograms {\ntitle,\nprograms[] {\ntitle,\ndescription,\ncta,\n"image": {\n"url": image.asset->url,\n"alt":image.alt\n}\n}\n}\n}\n': PROGRAMS_QUERYResult;
     '\n*[_type == "home"][0] {\nfeatures {\nfeatures[] {\ntitle,\ndescription,\nbenefits[],\ncta,\ndirection,\n"image": {\n"url": image.asset->url,\n"alt":image.alt\n}\n}\n}\n}\n': FEATURES_QUERYResult;
+    '\n*[_type == "home"][0]{\nctaSection {\n\ntitle,\ndescription,\ncta,\n"image": {\n"url":image.asset->url,\n"alt":image.alt\n}\n}\n}\n': CTA_SECTION_QUERYResult;
     '\n*[_type == "home"][0] {\nfaqs {\ntitle,\nfaqs[] {\nquestion,\nanswer\n}\n}\n}\n': FAQS_QUERYResult;
+    '\n*[_type == "coachingProgram" && category == "job-search-coaching"][0] {\n  title,\n  description,\n  cta,\n  firstParagraph,\n  phases,\n  "careerCoach": {\n    "title": careerCoach.title,\n    "coachTitle": careerCoach.coachTitle,\n    "coachImage": {\n      "url": careerCoach.coachImage.asset->url,\n      "alt": careerCoach.coachImage.alt\n    },\n    "coachStory": careerCoach.coachStory\n  },\n  guarantees,\n  pricingPlans,\n  faqs,\n  secondParagraph\n}\n': JOB_SEARCH_QUERYResult;
   }
 }

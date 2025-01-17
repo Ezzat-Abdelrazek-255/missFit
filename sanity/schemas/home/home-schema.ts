@@ -12,27 +12,32 @@ export const homeSchema = defineType({
     }),
     defineField({
       name: "clients",
-      title: "Clients Section",
+      title: "Clients",
       type: "clients",
     }),
     defineField({
       name: "testimonials",
-      title: "Testimonials Section",
+      title: "Testimonials",
       type: "testimonials",
     }),
     defineField({
       name: "programs",
-      title: "Programs Section",
+      title: "Programs",
       type: "programs",
     }),
     defineField({
       name: "features",
-      title: "Features Section",
+      title: "Features",
       type: "features",
     }),
     defineField({
+      name: "ctaSection",
+      title: "Call-to-action Section",
+      type: "ctaSection",
+    }),
+    defineField({
       name: "faqs",
-      title: "FAQS Section",
+      title: "FAQS",
       type: "faqs",
     }),
   ],

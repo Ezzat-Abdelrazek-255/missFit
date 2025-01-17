@@ -2,7 +2,7 @@ import { defineField, defineType } from "sanity";
 
 export const featuresSchema = defineType({
   name: "features",
-  title: "Features Section",
+  title: "Features",
   type: "object",
   options: {
     collapsed: true,

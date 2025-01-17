@@ -11,7 +11,7 @@ const ProgramsSection = async () => {
   if (!content) return null;
 
   return (
-    <section className="overflow-hidden bg-gray-200 px-[var(--container-padding-x)] py-[var(--container-padding-y)] text-black">
+    <section className="bg-gray-200 px-[var(--container-padding-x)] py-[var(--container-padding-y)] text-black">
       <SectionTitle>{content.title}</SectionTitle>
       {content.programs && <Programs programs={content.programs} />}
     </section>

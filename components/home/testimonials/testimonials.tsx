@@ -6,6 +6,7 @@ import { TestimonialType } from "@/types";
 
 import "swiper/css";
 import SwiperControls from "@/components/shared/swiper-controls";
+import { BREAKPOINTS } from "@/constants";
 
 type TestimonialsProps = {
   testimonials: TestimonialType[];
@@ -19,7 +20,7 @@ const Testimonials = ({ testimonials }: TestimonialsProps) => {
         spaceBetween={20}
         direction="vertical"
         breakpoints={{
-          480: {
+          [BREAKPOINTS["sm"]]: {
             direction: "horizontal",
           },
         }}

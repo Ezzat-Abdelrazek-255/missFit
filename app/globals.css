@@ -22,6 +22,7 @@
   --size-font: calc(var(--size-container) / (var(--size-container-ideal) / var(--size-unit)));
   --container-padding-x: 10rem;
   --container-padding-y: 8rem;
+  --mobile-header-height: 120px;
 }
 
 /* Tablet */

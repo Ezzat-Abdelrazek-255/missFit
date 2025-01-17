@@ -1,4 +1,5 @@
 import ClientsSection from "@/components/home/clients/clients-section";
+import CtaSection from "@/components/home/ctaSection/cta-section";
 import FaqsSection from "@/components/home/faqs/faqs-section";
 import FeaturesSection from "@/components/home/features/features-section";
 import HeroSection from "@/components/home/hero/hero-section";
@@ -7,13 +8,14 @@ import TestimonialsSection from "@/components/home/testimonials/testimonials-sec
 
 export default function Home() {
   return (
-    <div>
+    <main>
       <HeroSection />
       <ClientsSection />
       <TestimonialsSection />
       <ProgramsSection />
       <FeaturesSection />
+      <CtaSection />
       <FaqsSection />
-    </div>
+    </main>
   );
 }

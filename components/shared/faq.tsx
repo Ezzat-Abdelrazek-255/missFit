@@ -6,7 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/shared/accordion";
 import { PortableText } from "@portabletext/react";
-import { FaqType } from "@/types";
+import { Faq as FaqType } from "@/sanity/types";
 
 type FaqProps = {
   faq: FaqType;

@@ -1,8 +1,8 @@
 import { defineField, defineType } from "sanity";
 
-export const faqsSchema = defineType({
-  name: "faqs",
-  title: "FAQS Section",
+export const testimonialsSchema = defineType({
+  name: "testimonials",
+  title: "Testimonials",
   type: "object",
   options: {
     collapsed: true,
@@ -11,14 +11,14 @@ export const faqsSchema = defineType({
   fields: [
     defineField({
       name: "title",
-      title: "Title",
+      title: "title",
       type: "string",
     }),
     defineField({
-      name: "faqs",
-      title: "FAQS",
+      name: "testimonials",
+      title: "Testimonials",
       type: "array",
-      of: [{ type: "faq" }],
+      of: [{ type: "testimonial" }],
     }),
   ],
 });

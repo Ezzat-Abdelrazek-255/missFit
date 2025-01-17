@@ -2,7 +2,7 @@ import SectionTitle from "@/components/shared/section-title";
 import { sanityClient } from "@/sanity/lib/client";
 import { FAQS_QUERY } from "@/sanity/lib/queries";
 import React from "react";
-import Faqs from "./faqs";
+import Faqs from "@/components/shared/faqs";
 
 const FaqsSection = async () => {
   const sanityResponse = await sanityClient.fetch(FAQS_QUERY);

@@ -1,6 +1,7 @@
 import {
   FAQS_QUERYResult,
   FEATURES_QUERYResult,
+  Phase,
   PROGRAMS_QUERYResult,
   TESTIMONIALS_QUERYResult,
 } from "@/sanity/types";
@@ -33,3 +34,5 @@ export type FaqType = FAQS_QUERYResult extends {
 } | null
   ? U
   : never;
+
+export type PhaseType = Phase;
