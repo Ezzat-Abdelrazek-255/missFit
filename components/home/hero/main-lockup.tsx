@@ -1,10 +1,10 @@
 import { Button } from "@/components/shared/button";
 import { PortableText } from "@portabletext/react";
 import { sanityClient } from "@/sanity/lib/client";
-import { HERO_QUERY } from "@/sanity/lib/queries";
+import { HOME_QUERY } from "@/sanity/lib/queries";
 
 const MainLockup = async () => {
-  const sanityResponse = await sanityClient.fetch(HERO_QUERY);
+  const sanityResponse = await sanityClient.fetch(HOME_QUERY);
   const content = sanityResponse?.hero;
 
   if (!content) return null;

@@ -8,7 +8,7 @@ type PricingPlans = {
 
 const PricingPlans = ({ pricingPlans }: PricingPlans) => {
   return (
-    <ul className="flex flex-col gap-[5rem] md:flex-row md:justify-center">
+    <ul className="grid grid-cols-1 gap-[5rem] md:grid-cols-[auto_auto_1fr] md:justify-center">
       {pricingPlans.map((pricingPlan) => (
         <li key={pricingPlan.title}>
           <PricingPlan pricingPlan={pricingPlan} />

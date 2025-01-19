@@ -1,10 +1,10 @@
 import { sanityClient } from "@/sanity/lib/client";
-import { CLIENTS_QUERY } from "@/sanity/lib/queries";
 import React from "react";
 import LogosMarquee from "./logos-marquee";
+import { HOME_QUERY } from "@/sanity/lib/queries";
 
 const ClientsSection = async () => {
-  const sanityResponse = await sanityClient.fetch(CLIENTS_QUERY);
+  const sanityResponse = await sanityClient.fetch(HOME_QUERY);
   const content = sanityResponse?.clients;
 
   if (!content) return null;

@@ -2,11 +2,12 @@ import Image from "next/image";
 import React from "react";
 import { PortableText } from "@portabletext/react";
 import { sanityClient } from "@/sanity/lib/client";
-import { CTA_SECTION_QUERY } from "@/sanity/lib/queries";
+import { HOME_QUERY } from "@/sanity/lib/queries";
 import SectionButton from "@/components/shared/section-button";
+import { urlFor } from "@/utils";
 
 const CtaSection = async () => {
-  const sanityResponse = await sanityClient.fetch(CTA_SECTION_QUERY);
+  const sanityResponse = await sanityClient.fetch(HOME_QUERY);
   const content = sanityResponse?.ctaSection;
 
   if (!content) return null;
@@ -24,14 +25,16 @@ const CtaSection = async () => {
           {content.cta?.label}
         </SectionButton>
       </div>
-      <div className="absolute inset-0 z-hidden">
-        <Image
-          src={content.image.url!}
-          alt={content.image.alt!}
-          fill
-          className="h-full w-full object-cover object-left md:object-center"
-        />
-      </div>
+      {content.image && (
+        <div className="absolute inset-0 z-hidden">
+          <Image
+            src={urlFor(content.image).url()}
+            alt={content.image.alt || ""}
+            fill
+            className="h-full w-full object-cover object-left md:object-center"
+          />
+        </div>
+      )}
     </section>
   );
 };

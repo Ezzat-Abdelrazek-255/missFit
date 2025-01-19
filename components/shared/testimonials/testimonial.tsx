@@ -9,14 +9,16 @@ const STARS_NUM = 5;
 
 type TestimonialProps = {
   testimonial: TestimonialType;
+  className?: string;
 };
 
-const Testimonial = ({ testimonial }: TestimonialProps) => {
+const Testimonial = ({ testimonial, className }: TestimonialProps) => {
   return (
     <article
       className={cn(
         "grid aspect-auto h-full w-full grid-cols-1 border-2 border-gray-400 md:aspect-[1.6]",
         testimonial.image && "md:grid-cols-2",
+        className,
       )}
     >
       {testimonial.image && (

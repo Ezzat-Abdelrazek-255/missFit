@@ -1,10 +1,10 @@
 import ClientsSection from "@/components/home/clients/clients-section";
 import CtaSection from "@/components/home/ctaSection/cta-section";
-import FaqsSection from "@/components/home/faqs/faqs-section";
 import HeroSection from "@/components/home/hero/hero-section";
-import HomeFeatures from "@/components/home/home-features";
-import HomeTestimonials from "@/components/home/home-testimonials";
 import ProgramsSection from "@/components/home/programs/programs-section";
+import FaqsSection from "@/components/shared/faqs-section";
+import FeaturesSection from "@/components/shared/features/features-section";
+import TestimonialsSection from "@/components/shared/testimonials/testimonials-section";
 import { sanityClient } from "@/sanity/lib/client";
 import { HOME_QUERY } from "@/sanity/lib/queries";
 
@@ -16,11 +16,18 @@ export default async function Home() {
     <main>
       <HeroSection />
       <ClientsSection />
-      <HomeTestimonials testimonials={content.testimonials} />
+      {content.testimonials && (
+        <TestimonialsSection testimonials={content.testimonials} />
+      )}
       <ProgramsSection />
-      <HomeFeatures features={content.features} />
+      {content.features && <FeaturesSection features={content.features} />}
       <CtaSection />
-      <FaqsSection />
+      {content.faqs && (
+        <FaqsSection
+          className="py-[var(--container-padding-y)]"
+          faqs={content.faqs}
+        />
+      )}
     </main>
   );
 }

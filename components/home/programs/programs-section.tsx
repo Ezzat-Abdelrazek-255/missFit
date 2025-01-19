@@ -1,11 +1,11 @@
 import SectionTitle from "@/components/shared/section-title";
 import { sanityClient } from "@/sanity/lib/client";
-import { PROGRAMS_QUERY } from "@/sanity/lib/queries";
+import { HOME_QUERY } from "@/sanity/lib/queries";
 import React from "react";
 import Programs from "./programs";
 
 const ProgramsSection = async () => {
-  const sanityResponse = await sanityClient.fetch(PROGRAMS_QUERY);
+  const sanityResponse = await sanityClient.fetch(HOME_QUERY);
   const content = sanityResponse?.programs;
 
   if (!content) return null;

@@ -2,10 +2,10 @@
 
 import React from "react";
 import Program from "./program";
-import { ProgramType } from "@/types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperControls from "@/components/shared/swiper-controls";
 import { BREAKPOINTS } from "@/constants";
+import { Program as ProgramType } from "@/sanity/types";
 
 type ProgramsProps = {
   programs: ProgramType[];
