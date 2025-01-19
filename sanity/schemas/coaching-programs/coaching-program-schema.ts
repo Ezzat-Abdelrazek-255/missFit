@@ -10,11 +10,7 @@ export const coachingProgramSchema = defineType({
       title: "Category",
       type: "string",
       options: {
-        list: [
-          "job-search-coaching",
-          "career-search-coaching",
-          "executive-coaching",
-        ],
+        list: ["job-search-coaching", "career-coaching", "executive-coaching"],
       },
     }),
     defineField({

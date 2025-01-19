@@ -1,7 +1,6 @@
 import { Guarantees as GuaranteesType } from "@/sanity/types";
 import React from "react";
 import CoachingProgramSubtitle from "./coaching-program-subtitle";
-import CustomPortableText from "@/components/shared/customPortableText";
 import Guarantees from "@/components/shared/guarantees";
 
 type CoachingProgramGuaranteesProps = {
@@ -12,7 +11,7 @@ const CoachingProgramGuarantees = ({
   guarantees,
 }: CoachingProgramGuaranteesProps) => {
   return (
-    <section>
+    <section className="sm:mx-auto sm:max-w-[calc(var(--container-max-width)+12rem)] md:max-w-[calc(var(--container-max-width)+20rem)]">
       <CoachingProgramSubtitle>{guarantees.title}</CoachingProgramSubtitle>
       <div>
         <Guarantees guarantees={guarantees.guarantees!} />

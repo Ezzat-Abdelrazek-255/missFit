@@ -19,8 +19,18 @@ export const pricingPlanSchema = defineType({
       type: "string",
     }),
     defineField({
+      name: "description",
+      title: "Description",
+      type: "customPortableText",
+    }),
+    defineField({
       name: "price",
       title: "Price",
+      type: "number",
+    }),
+    defineField({
+      name: "previousPrice",
+      title: "Previous Price",
       type: "number",
     }),
     defineField({
@@ -28,6 +38,11 @@ export const pricingPlanSchema = defineType({
       title: "Benefits",
       type: "array",
       of: [{ type: "string" }],
+    }),
+    defineField({
+      name: "footnote",
+      title: "Footnote",
+      type: "customPortableText",
     }),
   ],
 });

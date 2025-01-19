@@ -2,17 +2,17 @@ import CustomPortableText from "@/components/shared/customPortableText";
 import Phases from "@/components/shared/phases";
 import { Phases as PhasesType } from "@/sanity/types";
 import React from "react";
-import CoachingProgramSubtitle from "./coaching-program-subtitle";
+import Subtitle from "./subtitle";
 
-type CoachingProgramsPhasesProps = { phases: PhasesType };
+type PhasesSectionProps = { phases: PhasesType };
 
-const CoachingProgramPhases = ({
+const PhasesSection = ({
   phases: { title, description, phases, footnote },
-}: CoachingProgramsPhasesProps) => {
+}: PhasesSectionProps) => {
   return (
-    <section>
-      <CoachingProgramSubtitle>{title}</CoachingProgramSubtitle>
-      <div className="mb-[5rem]">
+    <section className="sm:mx-auto sm:max-w-[var(--container-max-width)]">
+      <Subtitle>{title}</Subtitle>
+      <div className="mb-[5rem] text-center sm:mx-auto sm:max-w-[38rem]">
         <CustomPortableText value={description!} />
       </div>
       <div className="mb-[3.2rem]">
@@ -25,4 +25,4 @@ const CoachingProgramPhases = ({
   );
 };
 
-export default CoachingProgramPhases;
+export default PhasesSection;

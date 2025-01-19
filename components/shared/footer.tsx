@@ -62,8 +62,16 @@ const Footer = () => {
                   Job Searching Coaching
                 </Link>
               </li>
-              <li>Career Coaching</li>
-              <li>Executive Coaching</li>
+              <li>
+                <Link href="/coaching-programs/career-coaching">
+                  Career Coaching
+                </Link>
+              </li>
+              <li>
+                <Link href="/coaching-programs/executive-coaching">
+                  Executive Coaching
+                </Link>
+              </li>
             </FooterList>
           </div>
           <div>
@@ -75,7 +83,9 @@ const Footer = () => {
           <div>
             <FooterHeading>Services</FooterHeading>
             <FooterList>
-              <li>Resume Writing</li>
+              <li>
+                <Link href="/services/resume-writing">Resume Writing</Link>
+              </li>
             </FooterList>
           </div>
           <div>

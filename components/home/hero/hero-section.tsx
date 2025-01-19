@@ -10,7 +10,7 @@ const HeroSection = async () => {
   if (!content) return null;
 
   return (
-    <section className="px-[var(--container-padding-x)] min-h-screen grid items-center">
+    <section className="grid min-h-screen items-center px-[var(--container-padding-x)]">
       <MainLockup />
       <HeroImage />
     </section>

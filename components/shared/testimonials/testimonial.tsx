@@ -2,7 +2,8 @@ import React from "react";
 import Star from "@/public/icons/star.svg";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
-import { TestimonialType } from "@/types";
+import { Testimonial as TestimonialType } from "@/sanity/types";
+import { cn, urlFor } from "@/utils";
 
 const STARS_NUM = 5;
 
@@ -12,17 +13,22 @@ type TestimonialProps = {
 
 const Testimonial = ({ testimonial }: TestimonialProps) => {
   return (
-    <article className="grid aspect-auto h-full w-full grid-cols-1 border-2 border-gray-400 md:aspect-[1.6] md:w-full md:grid-cols-2">
-      <div className="relative hidden w-full bg-gray-400 md:block">
-        {testimonial.image && (
+    <article
+      className={cn(
+        "grid aspect-auto h-full w-full grid-cols-1 border-2 border-gray-400 md:aspect-[1.6]",
+        testimonial.image && "md:grid-cols-2",
+      )}
+    >
+      {testimonial.image && (
+        <div className="relative hidden w-full bg-gray-400 md:block">
           <Image
-            src={testimonial.image.url!}
+            src={urlFor(testimonial.image).url()}
             alt={testimonial.image.alt!}
             className="h-full w-full object-cover"
             fill
           />
-        )}
-      </div>
+        </div>
+      )}
       <div className="flex flex-col justify-between gap-[2.4rem] p-[2.4rem]">
         <div>
           <div className="mb-[2.4rem] flex items-center gap-[0.8rem]">

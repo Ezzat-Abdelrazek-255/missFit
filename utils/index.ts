@@ -2,10 +2,21 @@ import clsx from "clsx";
 import gsap from "gsap";
 import { twMerge } from "tailwind-merge";
 import { ClassValue } from "clsx";
+import imageUrlBuilder from "@sanity/image-url";
+import { sanityClient } from "@/sanity/lib/client";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 export const cn = function(...input: ClassValue[]) {
   return twMerge(clsx(input));
 };
+
+// Get a pre-configured url-builder from your sanity client
+const builder = imageUrlBuilder(sanityClient);
+
+// Create a function to build URLs for Sanity images
+export function urlFor(source: SanityImageSource) {
+  return builder.image(source);
+}
 
 // @ts-expect-error: No defs provided
 export function horizontalLoop(items, config) {

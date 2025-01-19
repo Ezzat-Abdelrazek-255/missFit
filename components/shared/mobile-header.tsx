@@ -11,7 +11,7 @@ const MobileHeader = () => {
   const isHomePage = pathname === "/";
 
   return (
-    <header className="fixed top-0 z-header flex w-full items-center justify-between px-[var(--container-padding-x)] py-[calc(var(--container-padding-y))] sm:py-[calc(var(--container-padding-y)*0.3)] md:hidden">
+    <header className="fixed top-0 z-header flex h-[var(--header-height)] w-full items-center justify-between px-[var(--container-padding-x)] pt-[calc(var(--container-padding-y))] sm:pt-[calc(var(--container-padding-y)*0.3)] md:hidden">
       <Logo color={isHomePage ? "white" : "black"} />
       <div className="flex items-center gap-[2rem]">
         <button

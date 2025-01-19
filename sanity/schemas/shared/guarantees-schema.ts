@@ -23,8 +23,7 @@ export const guaranteesSchema = defineType({
     {
       name: "footnote",
       title: "Footnote",
-      type: "array",
-      of: [{ type: "block" }],
+      type: "customPortableText",
     },
   ],
 });

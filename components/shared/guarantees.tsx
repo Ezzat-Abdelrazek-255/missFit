@@ -8,7 +8,7 @@ type GuaranteesProps = {
 
 const Guarantees = ({ guarantees }: GuaranteesProps) => {
   return (
-    <ul>
+    <ul className="flex flex-col gap-[3rem] sm:gap-[5rem] md:gap-[6rem]">
       {guarantees &&
         guarantees.map((guarantee, i) => (
           <li key={guarantee.title}>

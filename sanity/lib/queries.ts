@@ -1,5 +1,17 @@
 import { defineQuery } from "next-sanity";
 
+export const HOME_QUERY = defineQuery(`
+*[_type == "home"][0]{
+hero,
+clients,
+testimonials,
+programs,
+features,
+ctaSection,
+faqs
+}
+`);
+
 export const HERO_QUERY = defineQuery(`
 *[_type == "home"][0]{
   hero {
@@ -134,5 +146,64 @@ export const JOB_SEARCH_QUERY = defineQuery(`
   pricingPlans,
   faqs,
   secondParagraph
+}
+`);
+
+export const CAREER_COACHING_QUERY = defineQuery(`
+*[_type == "coachingProgram" && category == "career-coaching"][0] {
+  title,
+  description,
+  cta,
+  firstParagraph,
+  phases,
+  "careerCoach": {
+    "title": careerCoach.title,
+    "coachTitle": careerCoach.coachTitle,
+    "coachImage": {
+      "url": careerCoach.coachImage.asset->url,
+      "alt": careerCoach.coachImage.alt
+    },
+    "coachStory": careerCoach.coachStory
+  },
+  guarantees,
+  pricingPlans,
+  faqs,
+  secondParagraph
+}
+`);
+
+export const EXECUTIVE_COACHING_QUERY = defineQuery(`
+*[_type == "coachingProgram" && category == "executive-coaching"][0] {
+  title,
+  description,
+  cta,
+  firstParagraph,
+  phases,
+  "careerCoach": {
+    "title": careerCoach.title,
+    "coachTitle": careerCoach.coachTitle,
+    "coachImage": {
+      "url": careerCoach.coachImage.asset->url,
+      "alt": careerCoach.coachImage.alt
+    },
+    "coachStory": careerCoach.coachStory
+  },
+  guarantees,
+  pricingPlans,
+  faqs,
+  secondParagraph
+}
+`);
+
+export const RESUME_WRITING_QUERY = defineQuery(`
+*[_type == "service" && category == "resume-writing"][0] {
+  title,
+  description,
+  cta,
+  testimonials,
+  features,
+  phases,
+  faqs,
+  pricingPlans,
 }
 `);

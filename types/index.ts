@@ -3,7 +3,7 @@ import {
   FEATURES_QUERYResult,
   Phase,
   PROGRAMS_QUERYResult,
-  TESTIMONIALS_QUERYResult,
+  Testimonial,
 } from "@/sanity/types";
 
 export type NavItemType = {
@@ -11,11 +11,7 @@ export type NavItemType = {
   href: string;
 };
 
-export type TestimonialType = TESTIMONIALS_QUERYResult extends {
-  testimonials: { testimonials: Array<infer U> | null } | null;
-} | null
-  ? U
-  : never;
+export type TestimonialType = Testimonial;
 
 export type ProgramType = PROGRAMS_QUERYResult extends {
   programs: { programs: Array<infer U> | null } | null;

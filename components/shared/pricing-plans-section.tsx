@@ -2,16 +2,16 @@ import CustomPortableText from "@/components/shared/customPortableText";
 import PricingPlans from "@/components/shared/pricing-plans";
 import { PricingPlans as PricingPlansType } from "@/sanity/types";
 import React from "react";
-import CoachingProgramSubtitle from "./coaching-program-subtitle";
+import Subtitle from "./subtitle";
 
-type CoachingProgramPricingPlansProps = { pricingPlans: PricingPlansType };
+type PricingPlansSectionProps = { pricingPlans: PricingPlansType };
 
-const CoachingProgramPricingPlans = ({
+const PricingPlansSection = ({
   pricingPlans: { title, description, pricingPlans },
-}: CoachingProgramPricingPlansProps) => {
+}: PricingPlansSectionProps) => {
   return (
     <section className="mx-auto max-w-[var(--container-max-width)]">
-      <CoachingProgramSubtitle>{title}</CoachingProgramSubtitle>
+      <Subtitle>{title}</Subtitle>
       <div className="mb-[5rem] text-center">
         <CustomPortableText value={description!} />
       </div>
@@ -20,4 +20,4 @@ const CoachingProgramPricingPlans = ({
   );
 };
 
-export default CoachingProgramPricingPlans;
+export default PricingPlansSection;

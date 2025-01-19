@@ -1,6 +1,6 @@
 import React from "react";
 import Feature from "./feature";
-import { FeatureType } from "@/types";
+import { Feature as FeatureType } from "@/sanity/types";
 
 type FeaturesProps = {
   features: FeatureType[];
@@ -9,11 +9,12 @@ type FeaturesProps = {
 const Features = ({ features }: FeaturesProps) => {
   return (
     <ul className="flex flex-col gap-[8.4rem]">
-      {features.map((feature) => (
-        <li key={feature.title}>
-          <Feature feature={feature} />
-        </li>
-      ))}
+      {features &&
+        features.map((feature) => (
+          <li key={feature.title}>
+            <Feature feature={feature} />
+          </li>
+        ))}
     </ul>
   );
 };

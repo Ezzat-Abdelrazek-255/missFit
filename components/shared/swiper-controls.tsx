@@ -36,7 +36,7 @@ const SwiperControls = ({ className }: SwiperControlsProps) => {
   return (
     <div
       className={cn(
-        "absolute right-[var(--container-padding-x)] top-[-7.5rem] z-base hidden items-center gap-[1rem] sm:flex md:top-[-12rem] md:gap-[2rem]",
+        "absolute right-0 top-[-7.5rem] z-base hidden items-center gap-[1rem] sm:flex md:top-[-12rem] md:gap-[2rem]",
         className,
       )}
     >

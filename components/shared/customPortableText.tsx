@@ -8,6 +8,8 @@ import {
   NumberedListDecorator,
   RightAlignDecorator,
 } from "@/sanity/components/portable-text";
+import CoachingProgramSubtitle from "../coaching-programs/shared/coaching-program-subtitle";
+import Link from "next/link";
 
 const portableTextComponents = {
   marks: {
@@ -16,16 +18,27 @@ const portableTextComponents = {
     center: CenterAlignDecorator,
     right: RightAlignDecorator,
     strong: ({ children }: { children: React.ReactNode }) => (
-      <strong className="my-[3rem] inline-block">{children}</strong>
+      <strong className="my-[3rem] inline-block sm:my-[2rem]">
+        {children}
+      </strong>
     ),
     bullet: BulletListDecorator, // For unordered lists
     number: NumberedListDecorator, // For ordered lists
+    link: ({
+      children,
+      value,
+    }: {
+      children: React.ReactNode;
+      value: { href: string };
+    }) => (
+      <Link href={value.href} className="font-semibold text-pink">
+        {children}
+      </Link>
+    ),
   },
   block: {
     h2: ({ children }: { children: React.ReactNode }) => (
-      <h2 className="my-[3rem] font-display text-[3rem] font-bold uppercase text-marine">
-        {children}
-      </h2>
+      <CoachingProgramSubtitle>{children}</CoachingProgramSubtitle>
     ),
     normal: ({ children }: { children: React.ReactNode }) => (
       <p className="whitespace-pre-line text-[length:inherit] leading-[inherit]">

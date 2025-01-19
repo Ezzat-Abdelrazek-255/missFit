@@ -2,11 +2,10 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Testimonial from "./testimonial";
-import { TestimonialType } from "@/types";
-
 import "swiper/css";
 import SwiperControls from "@/components/shared/swiper-controls";
 import { BREAKPOINTS } from "@/constants";
+import { Testimonial as TestimonialType } from "@/sanity/types";
 
 type TestimonialsProps = {
   testimonials: TestimonialType[];
