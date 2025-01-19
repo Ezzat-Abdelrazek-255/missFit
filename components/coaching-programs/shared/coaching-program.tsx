@@ -1,8 +1,6 @@
 //TODO Fix careerCoach Type Error
 import CoachingProgramCareerCoach from "@/components/coaching-programs/shared/coaching-program-career-coach";
-import CoachingProgramFaqs from "@/components/coaching-programs/shared/coaching-program-faqs";
 import CoachingProgramGuarantees from "@/components/coaching-programs/shared/coaching-program-guarantees";
-import CoachingProgramPhases from "@/components/coaching-programs/shared/coaching-program-phases";
 import CoachingProgramPricingPlans from "@/components/coaching-programs/shared/coaching-program-pricing-plans";
 import CoachingProgramTitle from "@/components/coaching-programs/shared/coaching-program-title";
 import CustomPortableText from "@/components/shared/customPortableText";
