@@ -1,15 +1,4 @@
-import {
-  FAQS_QUERYResult,
-  FEATURES_QUERYResult,
-  Phase,
-  PROGRAMS_QUERYResult,
-  Testimonial,
-} from "@/sanity/types";
-
-export type NavItemType = {
-  label: string;
-  href: string;
-};
+import { FAQS_QUERYResult, FEATURES_QUERYResult, PROGRAMS_QUERYResult, Phase, Testimonial } from "@/sanity/types";
 
 export type TestimonialType = Testimonial;
 

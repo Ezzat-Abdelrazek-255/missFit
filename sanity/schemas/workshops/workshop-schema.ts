@@ -3,8 +3,16 @@ import { defineField, defineType } from "sanity";
 export const workshopSchema = defineType({
   name: "workshop",
   title: "Workshop",
-  type: "object",
+  type: "document",
   fields: [
+    defineField({
+      name: "category",
+      title: "Category",
+      type: "string",
+      options: {
+        list: ["linkedin-engine"],
+      },
+    }),
     defineField({
       name: "title",
       title: "Title",

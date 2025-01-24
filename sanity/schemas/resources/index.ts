@@ -1,5 +1,4 @@
-import { blogSchema } from "./blog-schema";
-import { blogsSchema } from "./blogs-schema";
+import { resourceSchema } from "./resource-schema";
 import { resourcesSchema } from "./resources-schema";
 
-export const resourcesSchemas = [resourcesSchema, blogsSchema, blogSchema];
+export const resourcesSchemas = [resourcesSchema, resourceSchema];

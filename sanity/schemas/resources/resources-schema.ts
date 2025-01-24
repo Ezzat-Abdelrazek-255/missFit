@@ -6,15 +6,18 @@ export const resourcesSchema = defineType({
   type: "document",
   fields: [
     defineField({
-      name: "blogs",
-      title: "Blogs",
-      type: "blogs",
+      name: "type",
+      title: "Type",
+      type: "string",
+      options: {
+        list: ["blogs", "guides", "workshops", "templates", "newsletter"],
+      },
+    }),
+    defineField({
+      name: "featuredResource",
+      title: "Featured Resource",
+      type: "reference",
+      to: [{ type: "resource" }],
     }),
   ],
-
-  // preview: {
-  //   select: {
-  //     title: "hero.title",
-  //   },
-  // },
 });

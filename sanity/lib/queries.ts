@@ -95,7 +95,7 @@ export const RESUME_WRITING_QUERY = defineQuery(`
 `);
 
 export const LINKEDIN_DRILL_QUERY = defineQuery(`
-*[_type == "service" && category == "resume-writing"][0] {
+*[_type == "workshop" && category == "linkedin-engine"][0] {
   title,
   description,
   cta,
@@ -104,5 +104,43 @@ export const LINKEDIN_DRILL_QUERY = defineQuery(`
   phases,
   faqs,
   pricingPlans,
+}
+`);
+
+export const FEATURED_RESOURCE_QUERY = defineQuery(`
+*[_type == "resources" && type == $resourceType][0] {
+featuredResource->,
+}
+`);
+
+export const RESOURCES_QUERY = defineQuery(`
+  *[_type == "resource" && type == $resourceType] {
+_id,
+type,
+title,
+category,
+description,
+content,
+author,
+coverImage,
+publishDate,
+readDuration,
+"relatedResources": relatedResources[]->
+}
+`);
+
+export const RESOURCE_QUERY = defineQuery(`
+*[_type == "resource" && _id == $resourceId][0] {
+_id,
+type,
+title,
+category,
+description,
+content,
+author,
+coverImage,
+publishDate,
+readDuration,
+"relatedResources": relatedResources[]->
 }
 `);

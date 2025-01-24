@@ -1,6 +1,7 @@
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
 import Logo from "./logo";
+import { NAV_ITEMS } from "@/constants";
 import LinkedinIcon from "@/public/icons/linkedin.svg";
 import YoutubeIcon from "@/public/icons/youtube.svg";
 
@@ -17,83 +18,24 @@ const Footer = () => {
           </div>
         </div>
         <div className="mb-[8rem] grid grid-cols-1 grid-rows-3 gap-y-[6rem] sm:grid-cols-2 md:grid-cols-3 md:grid-rows-2">
-          <div>
-            <FooterHeading>Company</FooterHeading>
-            <FooterList>
-              <li>
-                <Link href="#">About</Link>
-              </li>
-              <li>
-                <Link href="#">Contact</Link>
-              </li>
-              <li>
-                <Link href="#">FAQ</Link>
-              </li>
-              <li>
-                <Link href="#">Customer Stories</Link>
-              </li>
-              <li>
-                <Link href="#">Sitemap</Link>
-              </li>
-            </FooterList>
-          </div>
-          <div>
-            <FooterHeading>Resources</FooterHeading>
-            <FooterList>
-              <li>
-                <Link href="#">Guides</Link>
-              </li>
-              <li>
-                <Link href="#">Blog</Link>
-              </li>
-              <li>
-                <Link href="#">Workbooks</Link>
-              </li>
-              <li>
-                <Link href="#">Templates</Link>
-              </li>
-            </FooterList>
-          </div>
-          <div>
-            <FooterHeading>Coaching Programs</FooterHeading>
-            <FooterList>
-              <li>
-                <Link href="/coaching-programs/job-search">
-                  Job Searching Coaching
-                </Link>
-              </li>
-              <li>
-                <Link href="/coaching-programs/career-coaching">
-                  Career Coaching
-                </Link>
-              </li>
-              <li>
-                <Link href="/coaching-programs/executive-coaching">
-                  Executive Coaching
-                </Link>
-              </li>
-            </FooterList>
-          </div>
-          <div>
-            <FooterHeading>Workshops</FooterHeading>
-            <FooterList>
-              <li>Linkedin Engine</li>
-            </FooterList>
-          </div>
-          <div>
-            <FooterHeading>Services</FooterHeading>
-            <FooterList>
-              <li>
-                <Link href="/services/resume-writing">Resume Writing</Link>
-              </li>
-            </FooterList>
-          </div>
+          {NAV_ITEMS.map(navItem => (
+            <div key={navItem.label}>
+              <FooterHeading>{navItem.label}</FooterHeading>
+              {
+                <FooterList>
+                  {navItem.items.map(item => (
+                    <li key={item.label}>
+                      <Link href={item.href}>{item.label}</Link>
+                    </li>
+                  ))}
+                </FooterList>
+              }
+            </div>
+          ))}
           <div>
             <FooterHeading>Newsletter</FooterHeading>
             <div className="flex flex-col gap-[2rem]">
-              <p className="max-w-[80%]">
-                Join the Insider Edge Newsletter. 45k+ professionals subscribed.
-              </p>
+              <p className="max-w-[80%]">Join the Insider Edge Newsletter. 45k+ professionals subscribed.</p>
               <input
                 className="w-full rounded-[0.8rem] border-[1px] border-gray-500 px-[1.6rem] py-[1rem] text-[1.6rem] placeholder:text-gray-500 sm:max-w-none md:max-w-[30rem]"
                 placeholder="Enter your email"

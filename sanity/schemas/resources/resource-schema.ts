@@ -1,22 +1,36 @@
+import { RESOURCES_CATEGORIES } from "@/constants";
 import { defineField, defineType } from "sanity";
 
-export const blogSchema = defineType({
-  name: "blog",
-  title: "Blog",
+export const resourceSchema = defineType({
+  name: "resource",
+  title: "Resource",
   type: "document",
   fields: [
+    defineField({
+      name: "type",
+      title: "Type",
+      type: "string",
+      options: {
+        list: ["blogs", "guides", "workshops", "templates", "newsletter"],
+      },
+    }),
     defineField({
       name: "category",
       title: "Category",
       type: "string",
       options: {
-        list: ["job-search-coaching", "career-coaching", "executive-coaching"],
+        list: RESOURCES_CATEGORIES,
       },
     }),
     defineField({
       name: "title",
       title: "Title",
       type: "string",
+    }),
+    defineField({
+      name: "description",
+      title: "Description",
+      type: "customPortableText",
     }),
     defineField({
       name: "content",
@@ -30,6 +44,11 @@ export const blogSchema = defineType({
       type: "string",
     }),
     defineField({
+      name: "coverImage",
+      title: "Cover Image",
+      type: "customImage",
+    }),
+    defineField({
       name: "publishDate",
       title: "Publish Date",
       type: "date",
@@ -40,13 +59,13 @@ export const blogSchema = defineType({
     defineField({
       name: "readDuration",
       title: "Read Duration",
-      type: "number", // Consider using minutes as the unit
+      type: "number",
     }),
     defineField({
-      name: "relatedBlogs",
-      title: "Related Blogs",
+      name: "relatedResources",
+      title: "Related Resources",
       type: "array",
-      of: [{ type: "reference", to: [{ type: "blog" }] }],
+      of: [{ type: "reference", to: [{ type: "resource" }] }],
     }),
   ],
 });

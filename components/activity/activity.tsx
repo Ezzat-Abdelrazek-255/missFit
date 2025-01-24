@@ -1,4 +1,6 @@
 // TODO Finish the title and finish a solution to pricing
+import React from "react";
+import ActivityTitle from "./activity-title";
 import CustomPortableText from "@/components/shared/customPortableText";
 import FaqsSection from "@/components/shared/faqs-section";
 import FeaturesSection from "@/components/shared/features/features-section";
@@ -8,12 +10,10 @@ import SecondaryButton from "@/components/shared/secondary-button";
 import SecondaryHero from "@/components/shared/secondary-hero";
 import MiniTestimonialsSection from "@/components/shared/testimonials/mini-testimonials-section";
 import { sanityClient } from "@/sanity/lib/client";
-import { RESUME_WRITING_QUERY } from "@/sanity/lib/queries";
-import React from "react";
-import ActivityTitle from "./activity-title";
+import { LINKEDIN_DRILL_QUERY, RESUME_WRITING_QUERY } from "@/sanity/lib/queries";
 
 type ActivityProps = {
-  query: typeof RESUME_WRITING_QUERY;
+  query: typeof RESUME_WRITING_QUERY | typeof LINKEDIN_DRILL_QUERY;
 };
 
 const Activity = async ({ query }: ActivityProps) => {
@@ -33,9 +33,7 @@ const Activity = async ({ query }: ActivityProps) => {
       </SecondaryHero>
       {/* Testimonials */}
       <div className="px-[var(--container-padding-x)] md:px-0 md:pl-[var(--container-padding-x)]">
-        {content.testimonials && (
-          <MiniTestimonialsSection testimonials={content.testimonials} />
-        )}
+        {content.testimonials && <MiniTestimonialsSection testimonials={content.testimonials} />}
       </div>
       {/* Features */}
       <div>

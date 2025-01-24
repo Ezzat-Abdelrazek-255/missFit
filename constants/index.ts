@@ -1,23 +1,102 @@
-import { NavItemType } from "@/types";
-
 export const BREAKPOINTS = { sm: 480, md: 768, lg: 1440 };
 
-export const NAV_ITEMS: NavItemType[] = [
+export const RESOURCES_CATEGORIES = ["job-searching-coaching", "career-coaching", "executive-coaching"];
+
+export const NAV_ITEMS = [
+  {
+    label: "Company",
+    items: [
+      {
+        label: "About",
+        href: "/about",
+      },
+      {
+        label: "Contact",
+        href: "/contact",
+      },
+      {
+        label: "FAQ",
+        href: "/faqs",
+      },
+      {
+        label: "Customer Stories",
+        href: "/customer-stories",
+      },
+    ],
+  },
   {
     label: "Programs",
-    href: "/programs",
+    items: [
+      {
+        label: "Job Search Coaching",
+        href: "/coaching-programs/job-search",
+      },
+      {
+        label: "Career Coaching",
+        href: "/coaching-programs/career-coaching",
+      },
+      {
+        label: "Executive Coaching",
+        href: "/coaching-programs/executive-coaching",
+      },
+    ],
   },
 
   {
     label: "Services",
-    href: "/services",
+    items: [{ label: "Resume Writing", href: "/services/resume-writing" }],
   },
   {
     label: "Workshops",
-    href: "/workshops",
+    items: [
+      {
+        label: "Linkedin Engine",
+        href: "/workshops/linkedin-engine",
+      },
+    ],
   },
   {
     label: "Resources",
-    href: "/resources",
+    items: [
+      {
+        label: "Guides",
+        href: "/resources/guides",
+      },
+      {
+        label: "Blogs",
+        href: "/resources/blogs",
+      },
+      {
+        label: "Workbooks",
+        href: "/resources/workbooks",
+      },
+      {
+        label: "templates",
+        href: "/resources/templates",
+      },
+    ],
+  },
+];
+
+export const RESOURCES_ITEMS = [
+  {
+    label: "Blogs",
+    href: "/resources/blogs",
+  },
+  {
+    label: "Guides",
+    href: "/resources/guides",
+  },
+  {
+    label: "Workbooks",
+    href: "/resources/workbooks",
+  },
+  {
+    label: "Templates",
+    href: "/resources/templates",
+  },
+  {
+    label: "Newsletter",
+    href: "/resources/newsletter",
   },
 ];

@@ -1,14 +1,12 @@
+import React from "react";
+import Subtitle from "./subtitle";
 import CustomPortableText from "@/components/shared/customPortableText";
 import Phases from "@/components/shared/phases";
 import { Phases as PhasesType } from "@/sanity/types";
-import React from "react";
-import Subtitle from "./subtitle";
 
 type PhasesSectionProps = { phases: PhasesType };
 
-const PhasesSection = ({
-  phases: { title, description, phases, footnote },
-}: PhasesSectionProps) => {
+const PhasesSection = ({ phases: { title, description, phases, footnote } }: PhasesSectionProps) => {
   return (
     <section className="sm:mx-auto sm:max-w-[var(--container-max-width)]">
       <Subtitle>{title}</Subtitle>

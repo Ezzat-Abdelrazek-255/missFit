@@ -1,14 +1,27 @@
+import { sanityClient } from "@/sanity/lib/client";
+import imageUrlBuilder from "@sanity/image-url";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import clsx from "clsx";
+import { ClassValue } from "clsx";
 import gsap from "gsap";
 import { twMerge } from "tailwind-merge";
-import { ClassValue } from "clsx";
-import imageUrlBuilder from "@sanity/image-url";
-import { sanityClient } from "@/sanity/lib/client";
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 export const cn = function(...input: ClassValue[]) {
   return twMerge(clsx(input));
 };
+
+export function capitalize(str: string): string {
+  if (str === "") return "";
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
+
+export function kebabToTitleCase(str: string): string {
+  return str
+    .split("-") // Split by hyphens
+    .filter(part => part !== "") // Remove empty parts from consecutive hyphens
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(" "); // Join with spaces
+}
 
 // Get a pre-configured url-builder from your sanity client
 const builder = imageUrlBuilder(sanityClient);
@@ -35,7 +48,7 @@ export function horizontalLoop(items, config) {
     xPercents = [],
     curIndex = 0,
     pixelsPerSecond = (config.speed || 1) * 100,
-    snap = config.snap === false ? (v) => v : gsap.utils.snap(config.snap || 1), // some browsers shift by a pixel to accommodate flex layouts, so for example if width is 20% the first element's width might be 242px, and the next 243px, alternating back and forth. So we snap to 5 percentage points to make things look more natural
+    snap = config.snap === false ? v => v : gsap.utils.snap(config.snap || 1), // some browsers shift by a pixel to accommodate flex layouts, so for example if width is 20% the first element's width might be 242px, and the next 243px, alternating back and forth. So we snap to 5 percentage points to make things look more natural
     totalWidth,
     curX,
     distanceToStart,
@@ -46,10 +59,7 @@ export function horizontalLoop(items, config) {
     // convert "x" to "xPercent" to make things responsive, and populate the widths/xPercents Arrays to make lookups faster.
     xPercent: (i, el) => {
       const w = (widths[i] = parseFloat(gsap.getProperty(el, "width", "px")));
-      xPercents[i] = snap(
-        (parseFloat(gsap.getProperty(el, "x", "px")) / w) * 100 +
-        gsap.getProperty(el, "xPercent"),
-      );
+      xPercents[i] = snap((parseFloat(gsap.getProperty(el, "x", "px")) / w) * 100 + gsap.getProperty(el, "xPercent"));
       return xPercents[i];
     },
   });
@@ -58,15 +68,13 @@ export function horizontalLoop(items, config) {
     items[length - 1].offsetLeft +
     (xPercents[length - 1] / 100) * widths[length - 1] -
     startX +
-    items[length - 1].offsetWidth *
-    gsap.getProperty(items[length - 1], "scaleX") +
+    items[length - 1].offsetWidth * gsap.getProperty(items[length - 1], "scaleX") +
     (parseFloat(config.paddingRight) || 0);
   for (i = 0; i < length; i++) {
     item = items[i];
     curX = (xPercents[i] / 100) * widths[i];
     distanceToStart = item.offsetLeft + curX - startX;
-    distanceToLoop =
-      distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
+    distanceToLoop = distanceToStart + widths[i] * gsap.getProperty(item, "scaleX");
     tl.to(
       item,
       {
@@ -78,14 +86,11 @@ export function horizontalLoop(items, config) {
       .fromTo(
         item,
         {
-          xPercent: snap(
-            ((curX - distanceToLoop + totalWidth) / widths[i]) * 100,
-          ),
+          xPercent: snap(((curX - distanceToLoop + totalWidth) / widths[i]) * 100),
         },
         {
           xPercent: xPercents[i],
-          duration:
-            (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond,
+          duration: (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond,
           immediateRender: false,
         },
         distanceToLoop / pixelsPerSecond,
@@ -95,8 +100,7 @@ export function horizontalLoop(items, config) {
   }
   function toIndex(index, vars) {
     vars = vars || {};
-    Math.abs(index - curIndex) > length / 2 &&
-      (index += index > curIndex ? -length : length); // always go in the shortest direction
+    Math.abs(index - curIndex) > length / 2 && (index += index > curIndex ? -length : length); // always go in the shortest direction
     let newIndex = gsap.utils.wrap(0, length, index),
       time = times[newIndex];
     if (time > tl.time() !== index > curIndex) {
@@ -108,8 +112,8 @@ export function horizontalLoop(items, config) {
     vars.overwrite = true;
     return tl.tweenTo(time, vars);
   }
-  tl.next = (vars) => toIndex(curIndex + 1, vars);
-  tl.previous = (vars) => toIndex(curIndex - 1, vars);
+  tl.next = vars => toIndex(curIndex + 1, vars);
+  tl.previous = vars => toIndex(curIndex - 1, vars);
   tl.current = () => curIndex;
   tl.toIndex = (index, vars) => toIndex(index, vars);
   tl.times = times;
