@@ -1,18 +1,18 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
+// import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "./button";
 import Logo from "./logo";
 import {
   NavigationMenu,
-  NavigationMenuContent,
+  // NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
+  // NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
+  // navigationMenuTriggerStyle,
 } from "@/components/shared/navigation-menu";
 import { NAV_ITEMS } from "@/constants";
 import { cn } from "@/utils";
